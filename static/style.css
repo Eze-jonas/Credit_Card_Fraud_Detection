@@ -1,0 +1,87 @@
+/* General Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 600px;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Heading and Paragraph Styling */
+h1 {
+    color: #00F900;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Form Label and Input Styling */
+label {
+    display: block;
+    font-weight: bold; /* Fixed typo here */
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Prediction Result Styling */
+h2 {
+    margin-top: 20px;
+    color: #333;
+}

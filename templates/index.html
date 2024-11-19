@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Web Application - ML Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery -->
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Flask Web Application!</h1>
+        <p>This web application predicts the output based on input features using a machine learning model.</p>
+
+        <form id="prediction-form">
+            <label for="model_choice">Choose a model:</label>
+            <select name="model_choice" id="model_choice" required>
+                <option value="decision_tree">Decision Tree</option>
+                <option value="logistic_regression">Logistic Regression</option>
+                <option value="ann">Artificial Neural Network (ANN)</option>
+            </select><br><br>
+
+            <!-- Input fields for 23 features -->
+            {% for i in range(1, 24) %}
+            <label for="feature{{ i }}">Feature {{ i }}:</label>
+            <input type="text" name="feature{{ i }}" id="feature{{ i }}" required><br><br>
+            {% endfor %}
+
+            <input type="submit" value="Get Prediction">
+        </form>
+
+        <h2 id="prediction-result"></h2> <!-- This will hold the predictions -->
+
+    </div>
+
+    <script>
+        // Handle form submission with AJAX to prevent page reload
+        $('#prediction-form').submit(function(event) {
+            event.preventDefault(); // Prevents default form submission
+
+            // Get the selected model
+            const modelChoice = $('#model_choice').val();
+
+            // Collect features from the form inputs
+            const features = [];
+            for (let i = 1; i <= 23; i++) {
+                const featureValue = parseFloat($('#feature' + i).val());
+                if (!isNaN(featureValue)) {
+                    features.push(featureValue);
+                } else {
+                    $('#prediction-result').html('Invalid input for feature ' + i);
+                    return;
+                }
+            }
+
+            // Send the POST request with JSON data
+            $.ajax({
+                url: `/prediction/${modelChoice}`,  // Send the POST request to the /prediction/<model_name> route
+                type: "POST",
+                contentType: "application/json",  // Sending JSON data
+                data: JSON.stringify({ features: features }),  // Serialize form data to JSON
+                success: function(response) {
+                    // Update the page with prediction results
+                    $('#prediction-result').html(`
+                        <strong>Prediction Result:</strong> ${response[modelChoice + '_prediction']}
+                    `);
+                },
+                error: function() {
+                    // Handle any errors that occur during the AJAX request
+                    $('#prediction-result').html('An error occurred while making predictions.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
