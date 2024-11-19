@@ -1,0 +1,28 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+.action_project_evn/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# PyCharm-specific files
+.idea/
+*.iml
+
+# Model files
+*.joblib
+*.keras
+
+# Flask development files
+instance/
+*.sqlite3
