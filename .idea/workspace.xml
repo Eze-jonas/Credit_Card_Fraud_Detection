@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="098c88af-2b7c-4103-b50d-8dfe45d9da7a" name="Changes" comment="&quot;Add.gitignore file&quot;&#10;&quot;Add style.css&quot;&#10;&quot;Add app.py&quot;&#10;&quot;Add index.html&quot;">
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732031940358</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="&quot;Add.gitignore file&quot;&#10;&quot;Add style.css&quot;&#10;&quot;Add app.py&quot;&#10;&quot;Add index.html&quot;">
+      <option name="closed" value="true" />
+      <created>1732037056559</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732037056559</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
