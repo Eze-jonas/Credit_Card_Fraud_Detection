@@ -75,5 +75,4 @@ def predict(model_name):
 #print("Decision Tree Path:", os.getenv('DECISION_TREE_MODEL_PATH'))
 # Run the app
 if __name__ == "__main__":
-    app.run(debug=True)
-    #gunicorn -w 4 app:app
+    #app.run(debug=True)
