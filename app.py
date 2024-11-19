@@ -1,15 +1,20 @@
-
+import os
 import joblib
 import tensorflow as tf
 import numpy as np
 from flask import Flask, request, render_template, jsonify
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize Flask app
 app = Flask(__name__)
 
-# Relative Paths to Models
-decision_tree_model_path = 'best_decision_tree_model.joblib'
-logistic_regression_model_path = 'best_logistic_regression_model.joblib'
-ann_model_path = 'best_ann_model.keras'
+# Paths to models from environment variables
+decision_tree_model_path = os.getenv('DECISION_TREE_MODEL_PATH', 'best_decision_tree_model.joblib')
+logistic_regression_model_path = os.getenv('LOGISTIC_REGRESSION_MODEL_PATH', 'best_logistic_regression_model.joblib')
+ann_model_path = os.getenv('ANN_MODEL_PATH', 'best_ann_model.keras')
 
 # Load Models
 try:
@@ -67,7 +72,8 @@ def predict(model_name):
 
     except Exception as e:
         return jsonify({"error": f"Prediction failed: {e}"}), 500
-
+#print("Decision Tree Path:", os.getenv('DECISION_TREE_MODEL_PATH'))
 # Run the app
 if __name__ == "__main__":
     app.run(debug=True)
+    #gunicorn -w 4 app:app

@@ -6,6 +6,7 @@ __pycache__/
 # Virtual environments
 venv/
 env/
+.env
 .action_project_evn/
 
 # System files
