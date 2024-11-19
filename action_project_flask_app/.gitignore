@@ -27,3 +27,4 @@ Thumbs.db
 # Flask development files
 instance/
 *.sqlite3
+.action_project_flask_app/
