@@ -12,31 +12,35 @@
         <h1>Welcome to My Flask Web Application!</h1>
         <p>This web application predicts the output based on input features using a machine learning model.</p>
 
+        <!-- Form for model choice and features -->
         <form id="prediction-form">
             <label for="model_choice">Choose a model:</label>
             <select name="model_choice" id="model_choice" required>
                 <option value="decision_tree">Decision Tree</option>
                 <option value="logistic_regression">Logistic Regression</option>
                 <option value="ann">Artificial Neural Network (ANN)</option>
-            </select><br><br>
+            </select>
 
             <!-- Input fields for 23 features -->
             {% for i in range(1, 24) %}
-            <label for="feature{{ i }}">Feature {{ i }}:</label>
-            <input type="text" name="feature{{ i }}" id="feature{{ i }}" required><br><br>
+                <div class="form-group">
+                    <label for="feature{{ i }}">Feature {{ i }}:</label>
+                    <input type="text" name="feature{{ i }}" id="feature{{ i }}" required>
+                </div>
             {% endfor %}
 
             <input type="submit" value="Get Prediction">
         </form>
 
-        <h2 id="prediction-result"></h2> <!-- This will hold the predictions -->
+        <!-- This will display prediction results -->
+        <h2 id="prediction-result"></h2>
 
     </div>
 
     <script>
         // Handle form submission with AJAX to prevent page reload
         $('#prediction-form').submit(function(event) {
-            event.preventDefault(); // Prevents default form submission
+            event.preventDefault();  // Prevents default form submission
 
             // Get the selected model
             const modelChoice = $('#model_choice').val();
